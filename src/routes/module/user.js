@@ -22,14 +22,6 @@ const fileFilter = function(req, file, cb) {
   }
 };
 
-const upload = multer({
-  storage: storage,
-  limit: {
-    fileSize: 1024 * 1024 * 5
-  },
-  fileFilter: fileFilter
-});
-
 authenRouter.get("user", requireLogin);
 authenRouter.post("user", Controller.register);
 authenRouter.put("user", requireLogin, Controller.update);
